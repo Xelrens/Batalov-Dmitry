@@ -1,10 +1,9 @@
 //Описать функцию, которая проверяет является ли введенная пользователем последовательность символов палиндромом.
 
 #include <iostream>
-#include <cstdlib>
 using namespace std;
 
-void palindrome (int Mass[], int size) 
+bool palindrome (int Mass[], int size) 
 {
 int halfsize = size; //половина длины массива.
 int minussize = size; //длина массива, для прохождения его с конца.
@@ -16,14 +15,10 @@ halfsize = halfsize/2; //половина длины массива.
 for(int i=0; i<halfsize; i++, minussize--)
 {
 if (Mass[i] != Mass[minussize-1]) //сравнение равноудалённых от центра пар чисел.
-{
-cout<<"Последовательность символов не является палиндромом";
-exit (1);
-}
-//число меняется на 0, если последовательность не является палиндромом.
+return (0); 
 }
 
-cout<<"Последовательность символов является палиндромом";
+return(1);
 }
 
 
@@ -42,6 +37,8 @@ for(int i=0; i<size; i++)
 cin >> Mass[i];
 }
 
-palindrome(Mass, size);
-
+if(palindrome(Mass, size) == 0)
+cout<<"Последовательность символов не является палиндромом";
+else
+cout<<"Последовательность символов является палиндромом";
 }

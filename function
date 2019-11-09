@@ -15,10 +15,10 @@ halfsize = halfsize/2; //половина длины массива.
 for(int i=0; i<halfsize; i++, minussize--)
 {
 if (Mass[i] != Mass[minussize-1]) //сравнение равноудалённых от центра пар чисел.
-return (0); 
+return (false); 
 }
 
-return(1);
+return(true);
 }
 
 
@@ -37,7 +37,7 @@ for(int i=0; i<size; i++)
 cin >> Mass[i];
 }
 
-if(palindrome(Mass, size) == 0)
+if(palindrome(Mass, size) == false)
 cout<<"Последовательность символов не является палиндромом";
 else
 cout<<"Последовательность символов является палиндромом";

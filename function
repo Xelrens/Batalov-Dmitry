@@ -7,12 +7,11 @@ bool palindrome(string sequence)
 int size;
 size = sequence.length();    
     
-int halfsize = size; //половина длины массива.
+int halfsize = size; //половина длины последовательности символов.
 
 if(halfsize%2 != 0)
 halfsize += 1;
-halfsize = halfsize/2; //половина длины массива.
-
+halfsize = halfsize/2;
 for (int i=0; i<halfsize; i++)
 {
 if (sequence[i] != sequence[size-(i+1)]) //сравнение равноудалённых от центра пар символов.

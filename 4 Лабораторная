@@ -1,0 +1,43 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+char * remove(char* S, int startIndex, int count, int size)
+{
+char S2[size - count];
+
+startIndex --; //превращение порядкового номера в индекс.
+
+for(int i=0; i<startIndex; i++)
+    S2[i] = S[i];
+
+
+for(int i = startIndex, j = 0; j<(size-startIndex-count); j++, i++)
+    S2[i] = S[startIndex+count+j];
+    
+char * pointer = S2;
+
+return pointer;
+}
+
+int main()
+{
+int size;
+
+cout<<"Введите размер строки"<<endl;
+cin>>size;
+
+char S[size];
+int startIndex;
+int count;
+
+cout<<"Введите строку"<<endl;
+cin>>setw (size+1)>>S;
+cout<<"Введите начальный индекс"<<endl;
+cin>>startIndex;
+cout<<"Введите количество символов, которое необходимо удалить"<<endl;
+cin>>count;
+    
+char *S2 = remove(S, startIndex, count, size);
+
+}

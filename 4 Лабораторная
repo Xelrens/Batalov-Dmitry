@@ -4,7 +4,8 @@ using namespace std;
 
 char * remove(char* S, int startIndex, int count, int size)
 {
-char S2[size - count];
+char * S2;
+S2 = new char[size-count];
 
 startIndex --; //превращение порядкового номера в индекс.
 
@@ -22,20 +23,21 @@ return pointer;
 
 int main()
 {
+char * S;
 int size;
 
-cout<<"Введите размер строки"<<endl;
+cout<<"Enter the size of the array"<<endl;
 cin>>size;
+S = new char[size];
 
-char S[size];
 int startIndex;
 int count;
 
-cout<<"Введите строку"<<endl;
+cout<<"Enter the string"<<endl;
 cin>>setw (size+1)>>S;
-cout<<"Введите начальный индекс"<<endl;
+cout<<"Enter the start index"<<endl;
 cin>>startIndex;
-cout<<"Введите количество символов, которое необходимо удалить"<<endl;
+cout<<"Enter the number of characters to be deleted"<<endl;
 cin>>count;
     
 char *S2 = remove(S, startIndex, count, size);

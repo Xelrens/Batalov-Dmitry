@@ -4,62 +4,62 @@ using namespace std;
 enum Suit {clubs, diamonds, hearts, spades};
 enum Number {six = 6, seven = 7, eight = 8, nine = 9, ten = 10, jack=11, queen=12, king=13, ace=14};
 
-struct card
+struct Card
 {
 Number number;
 Suit suit;
 };
 
-bool kills(card k1, card k2, char km)
+int kills(Card k1, Card k2, char km)
 {
-    
-if(k1.suit != km && k2.suit != km && k2.suit != k1.suit)
-{
-    cout<<"Карты не могут бить друг друга";
-    return 0;
-}
     
 if(k1.suit == k2.suit)
 {  
     if(k1.number>k2.number)
-    {
-        cout<<"Первая карта бьёт вторую";
-        return 0;
-    }
+        return 1;
     else
     {
         if(k1.number<k2.number)
-        {
-            cout<<"Вторая карта бьёт первую";
-            return 0;
-        }
+            return 2;
         else
-        {
-            cout<<"Карты не могут бить друг друга";
             return 0;
-        }
     }
 }
 
 if(k1.suit == km)
-{
-    cout<<"Первая карта бьёт вторую";
-    return 0;
-}
+    return 1;
 else 
-{
-    cout<<"Вторая карта бьёт первую";
-    return 0;
-}
+    return 2;
+    
 
+return 0;
 }
 
 
 int main()
 {
-card k1 = {king, spades};
-card k2 = {seven, hearts};
+Card k1 = {seven, spades};
+Card k2 = {seven, spades};
 Suit km = hearts;
 
-kills (k1, k2, km);
+int result = kills (k1, k2, km);
+switch (result) 
+{
+    case 0: 
+        {
+        cout<<"Cards can not beat each other.";
+        break;
+        }
+    case 1: 
+        {
+        cout<<"The first card beats the second.";
+        break;
+        }
+    case 2: 
+        {
+        cout<<"The second card beats the first.";
+        break;
+        }
+}
+
 }

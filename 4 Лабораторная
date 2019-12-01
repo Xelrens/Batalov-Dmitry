@@ -5,26 +5,15 @@ using namespace std;
 char * remove(char* S, int startIndex, int count)
 {
 int size;
-int i = 0;
-while (S[i] != '\0')
-{
-    i++;
-    size += 1;
-}
-    
-char * S2;
-S2 = new char[size-count];
 
 startIndex --; //превращение порядкового номера в индекс.
 
-for(int i=0; i<startIndex; i++)
-    S2[i] = S[i];
-
-
 for(int i = startIndex, j = 0; j<(size-startIndex-count); j++, i++)
-    S2[i] = S[startIndex+count+j];
+    S[i] = S[startIndex+count+j];
     
-char * pointer = S2;
+S[startIndex+count+1] = '\0';
+    
+char * pointer = S;
 
 return pointer;
 }
@@ -40,3 +29,13 @@ S = new char[size];
 
 int startIndex;
 int count;
+
+cout<<"Enter the string"<<endl;
+cin>>setw (size+1)>>S;
+cout<<"Enter the string"<<endl;
+cin>>startIndex;
+cout<<"Enter the number of characters to be deleted"<<endl;
+cin>>count;
+    
+remove(S, startIndex, count);
+}

@@ -2,8 +2,16 @@
 #include <iomanip>
 using namespace std;
 
-char * remove(char* S, int startIndex, int count, int size)
+char * remove(char* S, int startIndex, int count)
 {
+int size;
+int i = 0;
+while (S[i] != '\0')
+{
+    i++;
+    size += 1;
+}
+    
 char * S2;
 S2 = new char[size-count];
 
@@ -32,14 +40,3 @@ S = new char[size];
 
 int startIndex;
 int count;
-
-cout<<"Enter the string"<<endl;
-cin>>setw (size+1)>>S;
-cout<<"Enter the start index"<<endl;
-cin>>startIndex;
-cout<<"Enter the number of characters to be deleted"<<endl;
-cin>>count;
-    
-char *S2 = remove(S, startIndex, count, size);
-
-}

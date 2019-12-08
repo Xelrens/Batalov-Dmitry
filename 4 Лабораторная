@@ -4,7 +4,7 @@ using namespace std;
 
 char * remove(char* S, int startIndex, int count)
 {
-int size;
+int size=0;
 int i = 0;
 while (S[i] != '\0')
 {
@@ -15,7 +15,7 @@ while (S[i] != '\0')
 char * S2;
 S2 = new char[size-count];
 
-startIndex; //превращение порядкового номера в индекс.
+startIndex; 
 
 for(int i=0; i<startIndex; i++)
     S2[i] = S[i];

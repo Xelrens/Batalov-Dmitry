@@ -29,7 +29,8 @@ if(k1.suit == k2.suit)
 if(k1.suit == km)
     return 1;
 else 
-    return 2;
+    if(k2.suit == km)
+        return 2;
     
 
 return 0;

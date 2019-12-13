@@ -1,21 +1,15 @@
 #include <iostream>
-#include <string>
 using namespace std;
 
-bool palindrome(string sequence) 
+bool palindrome(char * sequence, int size) 
 {
-int size;
-size = sequence.length();    
-    
-int halfsize = size; //половина длины последовательности символов.
 
-if(halfsize%2 != 0)
-halfsize += 1;
-halfsize = halfsize/2;
+int halfsize = size%2 == true? (size+1)/2 : (size+1); //половина длины последовательности символов.
+
 for (int i=0; i<halfsize; i++)
 {
-if (sequence[i] != sequence[size-(i+1)]) //сравнение равноудалённых от центра пар символов.
-return false;
+    if (sequence[i] != sequence[size-(i+1)]) //сравнение равноудалённых от центра пар символов.
+        return false;
 }
 
 return true;
@@ -24,13 +18,20 @@ return true;
 
 int main()
 {
-string sequence;
-cout<<"Введите последовательность символов"<<endl;
-cin>> sequence;
+char *sequence;
+int size;
 
-if(palindrome(sequence) == false)
-cout<<"Последовательность символов не является палиндромом";
+cout<<"Введите длину последовательности символов"<<endl;
+cin >> size;
+cout<<"Введите последовательность символов"<<endl;
+sequence = new char[size];
+
+for(int i=0;i<size;i++) 
+    cin>>sequence[i];
+
+if(palindrome(sequence, size) == false)
+    cout<<"Последовательность символов не является палиндромом";
 else
-cout<<"Последовательность символов является палиндромом";
+    cout<<"Последовательность символов является палиндромом";
 
 }
